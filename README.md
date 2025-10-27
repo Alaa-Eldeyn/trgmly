@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trgmly
 
-## Getting Started
+**Trgmly** هي منصة ذكية بتخلي الكود بتاعك يتكلم كل اللغات.  
+بنحوّل عملية ترجمة واجهات المستخدم من مهمة مجهدة ومملة إلى تجربة سريعة وسلسة، بضغطة زر واحدة.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ما هو Trgmly؟
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Trgmly هو أداة حديثة بتساعدك على ترجمة الـ Components الخاصة بتطبيقك لأي عدد من اللغات بشكل فوري.  
+كل اللي عليك إنك تحط الكود، وTrgmly بيتولى الباقي —  
+يستخرج النصوص، ينشئ ملفات الترجمة، ويرجعلك الكود جاهز للاستخدام.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## لماذا Trgmly؟
 
-## Learn More
+في عالم السرعة اللي إحنا فيه، كل ثانية مهمة.  
+Trgmly بيخلّصك من العمل اليدوي المتكرر،  
+وبيوفر لك الوقت تركز على الإبداع وتطوير التجربة الحقيقية للمستخدمين.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## المميزات الأساسية
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- استخراج النصوص من الكود تلقائيًا.  
+- إنشاء ملفات ترجمة جاهزة بعدة لغات.  
+- إرجاع الكود محول وجاهز للاستخدام الفوري.  
+- واجهة استخدام بسيطة وسريعة.  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## الرؤية
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+هدفنا إن Trgmly يكون الأداة الأساسية لأي مطوّر أو شركة بتشتغل على مشاريع متعددة اللغات.  
+نؤمن إن الترجمة مش مجرد تحويل كلمات، لكنها وسيلة إن تطبيقك يوصل للعالم كله.
+
+---
+
+## حالة المشروع
+
+النسخة الأولى (MVP) تحت التطوير حاليًا.  
+نعمل على إطلاق التجربة الأولى قريبًا جدًا، لتكون البداية لمرحلة جديدة في عالم تطوير الواجهات متعددة اللغات.
+
+---
+
+## عن المشروع
+
+تم تطوير Trgmly برؤية تجمع بين التقنية والابتكار،  
+لتقديم أداة حقيقية بتساعد المطورين والشركات على النمو العالمي بسهولة.
+
+---
+
+## تواصل معنا
+
+نرحب بالأفكار والملاحظات والمساهمات من أي مطوّر أو مستخدم مهتم بالمشروع.  
+تابعنا وشاركنا رؤيتك من خلال:
+
+- **GitHub:** [Alaa-Eldeyn](https://github.com/Alaa-Eldeyn)  
+- **LinkedIn:** [Alaa Eldeyn](https://www.linkedin.com/in/alaa-eldeyn)
+
+---
+
+**Trgmly** — هيرجملك البروجكت كامل.
