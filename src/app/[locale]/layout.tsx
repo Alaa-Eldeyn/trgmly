@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
+import Providers from "../providers";
 
 const ibm = IBM_Plex_Sans_Arabic({
   variable: "--font-ibm",
   subsets: ["latin", "arabic"],
-  weight: ["300", "400", "500", "600", "700"], // اختياري حسب اللي هتحتاجه
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${ibm.variable} font-sans antialiased bg-[#f9fafb] text-[#1f2937]`} >
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
