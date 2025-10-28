@@ -1,45 +1,78 @@
+// src/app/page.tsx
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+{ /* We'll import our runner and hook here */ }
+import { runTransformFlow } from "../lib/runner";
 
-export default function Home() {
+// The example component from the prompt
+const exampleCode = `// example.tsx
+export default function Hero() {
   return (
-    <main className="flex flex-col items-center justify-center h-screen bg-[#f9fafb] text-center p-6">
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="text-5xl md:text-6xl font-semibold text-[#1f2937] mb-4"
-      >
-        Trgmly
-      </motion.h1>
+    <div>
+      <h1>Welcome to Trgmly</h1>
+      <p>Make your code speak multiple languages</p>
+      <button title="Get started">Get Started</button>
+    </div>
+  );
+}`;
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
-        className="text-lg md:text-xl text-[#4b5563] mb-10"
-      >
-        خلي الكود بتاعك يتكلم كل اللغات 🌍
-      </motion.p>
+export default function HomePage() {
+  const [result, setResult] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
-        className="px-8 py-3 bg-[#1f2937] text-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
-      >
-         انتظرونا قريبًا 
-      </motion.div>
+  const handleTransform = async () => {
+    setIsLoading(true);
+    setError(null);
+    setResult(null);
+    try {
+      const flowResult = await runTransformFlow(exampleCode, "ar");
+      setResult(flowResult);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.8 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-        className="text-sm text-[#9ca3af] mt-10"
-      >
-        © {new Date().getFullYear()} Trgmly. All rights reserved.
-      </motion.p>
+  return (
+    <main className="min-h-screen bg-gray-50 p-8 font-sans">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-2">Trgmly</h1>
+        <p className="text-center text-gray-600 mb-8">
+          Automate your i18n workflow for React/Next.js
+        </p>
+
+        <div className="text-center mb-8">
+          <button
+            onClick={handleTransform}
+            disabled={isLoading}
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 transition-colors"
+          >
+            {isLoading ? "Processing..." : "Transform Example Code"}
+          </button>
+        </div>
+
+        {error && <p className="text-center text-red-500 mb-4">Error: {error}</p>}
+
+        {result && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-2xl font-semibold mb-4">Transformed Code</h2>
+              <pre className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
+                <code>{result.transformedCode}</code>
+              </pre>
+            </div>
+            <div>
+              <h2 className="text-2xl font-semibold mb-4">Translations JSON (ar)</h2>
+              <pre className="bg-gray-900 text-blue-400 p-4 rounded-lg overflow-x-auto text-sm">
+                <code>{JSON.stringify(result.translationsJson, null, 2)}</code>
+              </pre>
+            </div>
+          </div>
+        )}
+      </div>
     </main>
   );
 }
